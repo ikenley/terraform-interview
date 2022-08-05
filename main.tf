@@ -37,3 +37,31 @@ resource "aws_db_instance" "foo" {
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.this.id
 }
+
+resource "aws_db_instance" "bar" {
+  identifier           = "bar"
+  allocated_storage    = 10
+  engine               = "postgres"
+  engine_version       = "14.2"
+  instance_class       = "db.t3.micro"
+  name                 = "mydb"
+  username             = "user_bar"
+  password             = "password_bar"
+  parameter_group_name = "default.postgres14"
+  skip_final_snapshot  = true
+  db_subnet_group_name = aws_db_subnet_group.this.id
+}
+
+resource "aws_db_instance" "baz" {
+  identifier           = "baz"
+  allocated_storage    = 10
+  engine               = "postgres"
+  engine_version       = "14.2"
+  instance_class       = "db.t3.micro"
+  name                 = "mydb"
+  username             = "user_baz"
+  password             = "password_baz"
+  parameter_group_name = "default.postgres14"
+  skip_final_snapshot  = true
+  db_subnet_group_name = aws_db_subnet_group.this.id
+}
